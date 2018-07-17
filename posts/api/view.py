@@ -30,7 +30,7 @@ class PostListApiView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [
-        permissions.IsAdminUser
+        permissions.IsAuthenticatedOrReadOnly
     ]
 
 class PostDetailApiView(generics.RetrieveUpdateDestroyAPIView):
