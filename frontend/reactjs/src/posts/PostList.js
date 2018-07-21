@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PostDetail from './PostDetail'
 
 class PostList extends Component {
     constructor(){
@@ -20,13 +21,9 @@ class PostList extends Component {
       <div>
           {
               this.state.data ?
-                  this.state.data.map((item) =>
-                      <div>
-                        <h3>{item.title}</h3>
-                        <div>{item.content}</div>
-                          <h5>{item.author.username}</h5>
-                      </div>
-                  )
+                  this.state.data.map((item, index) => {
+                      return <PostDetail post={item} key={`post-list-key ${index}`}/>
+                  })
                   :
               <h3>Wait for fetching</h3>
           }
